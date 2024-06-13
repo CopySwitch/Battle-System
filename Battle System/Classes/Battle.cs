@@ -31,6 +31,13 @@ namespace Battle_System.Classes
                     $"and deal {PlayerAttack} damage");
                 Console.WriteLine($"{enemy.GetName()} has {enemy.GetHp()} health");
 
+                if (enemy.GetHp() == 0)
+                {
+                    Console.WriteLine("you won!");
+                    over = true;
+                    continue;
+                }
+
                 Console.ReadLine();
 
                 int enemyAttack = enemy.Attack();
@@ -41,6 +48,7 @@ namespace Battle_System.Classes
                 Console.WriteLine($"you have {player.GetHp()} health");
 
                 Console.ReadLine();
+
             }
         }
     }

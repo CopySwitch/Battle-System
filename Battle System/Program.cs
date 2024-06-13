@@ -15,13 +15,22 @@ namespace Battle_System
             Console.WriteLine($"You are a {player.GetClassName()}");
             Console.WriteLine($"You have a {player.GetWeaponName()}, it is {player.GetWeaponDescription()}");
 
-            Enemy enemy = new Skeleton();
+            List<Enemy> enemies = new List<Enemy>()
+            {
+                new Skeleton(),
+                new Goblin(),
+                new JhonWarhammer()        
+            };
 
             Console.WriteLine("Press enter to start battle...");
             Console.ReadLine();
 
-            Battle thisBattle = new Battle(player, enemy);
-            thisBattle.Loop();
+            foreach (Enemy enemy in enemies) 
+            
+            {
+                Battle thisBattle = new Battle(player, enemy);
+                thisBattle.Loop();
+            }
         }
 
         static Player PlayerSetup()
@@ -30,15 +39,22 @@ namespace Battle_System
 
             string playerClassChoice = OptionCheck("Select your class from the list below:\n" +
                 "1: Fighter\n" +
-                "2: Not Implemented\n" +
-                "3: Not Implemented", 
-                new string[] { "1" });
+                "2: Mage\n" +
+                "3: Ranger", 
+                new string[] { "1", "2", "3" });
 
             if (playerClassChoice == "1")
             {
                 player = new Fighter(playerName);
             }
-
+            else if (playerClassChoice == "2")
+            {
+                player = new Mage(playerName);
+            }
+            else if(playerClassChoice == "3")
+            {
+                player = new Ranger(playerName);
+            }
             return player;
         }
 
