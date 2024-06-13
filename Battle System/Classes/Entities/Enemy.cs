@@ -41,8 +41,3 @@ namespace Battle_System.Classes.Entities
     }
 }
 
-//I have added 2 new player classes
-//I have added 2 new enemy classes
-//I have added 4 new enemy types
-//I have fixed the ingame battle loop
-//I have added one special attack for ranger class
